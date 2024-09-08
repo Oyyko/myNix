@@ -74,7 +74,7 @@ let user = "jia"; in
       };
 
       dock = {
-        autohide = true;
+        autohide = false;
         show-recents = false;
         show-process-indicators = true;
         launchanim = true;

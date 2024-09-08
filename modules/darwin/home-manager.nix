@@ -77,8 +77,6 @@ in
       { path = "/Applications/Logseq.app/"; }
       { path = "/System/Applications/Mail.app/"; }
       { path = "/System/Applications/Music.app/"; }
-      { path = "/Applications/微信读书.app/"; }
-      { path = "/Applications/极客时间.app/"; }
     ];
   };
 }
