@@ -19,7 +19,7 @@ let user = "jia"; in
   #
   # age.secrets."github-ssh-key" = {
   #   symlink = true;
-  #   path = "/Users/${user}/.ssh/id_github";
+  #   path = "/Users/${user}/.ssh/id_ed25519";
   #   file =  "${secrets}/github-ssh-key.age";
   #   mode = "600";
   #   owner = "${user}";

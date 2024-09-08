@@ -7,8 +7,11 @@ let name = "Colin Zhang";
   # Shared shell configuration
   zsh = {
     enable = true;
+    enableCompletion = true;
+    autosuggestion.enable = true;
     autocd = false;
-    cdpath = [ "~/.local/share/src" ];
+    syntaxHighlighting.enable = true;
+    cdpath = [ "~/" "~/github/" ];
     plugins = [
       {
           name = "powerlevel10k";
@@ -20,6 +23,11 @@ let name = "Colin Zhang";
           src = lib.cleanSource ./config;
           file = "p10k.zsh";
       }
+      {
+          name = "bd";
+          src = pkgs.zsh-bd;
+          file = "share/zsh-bd/bd.zsh";
+      }
     ];
     initExtraFirst = ''
       if [[ -f /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh ]]; then
@@ -27,44 +35,46 @@ let name = "Colin Zhang";
         . /nix/var/nix/profiles/default/etc/profile.d/nix.sh
       fi
 
+      if [[ "$(uname)" == "Linux" ]]; then
+        alias pbcopy='xclip -selection clipboard'
+      fi
+
       # Keyboard Settings
       bindkey "\e\e[D" backward-word
       bindkey "\e\e[C" forward-word
 
       # Define variables for directories
-      export PATH=$HOME/.pnpm-packages/bin:$HOME/.pnpm-packages:$PATH
-      export PATH=$HOME/.npm-packages/bin:$HOME/bin:$PATH
       export PATH=$HOME/.local/share/bin:$PATH
 
-      # Remove history data we don't want to see
-      export HISTIGNORE="pwd:ls:cd"
+      # VSCode Support
+      export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
       # Ripgrep alias
-      alias search=rg -p --glob '!node_modules/*'  $@
-
-      # Emacs is my editor
-      export ALTERNATE_EDITOR=""
-      export EDITOR="emacsclient -t"
-      export VISUAL="emacsclient -c -a emacs"
-
-      e() {
-          emacsclient -t "$@"
-      }
+      alias search='rg -p --glob "!node_modules/*" --glob "!vendor/*" "$@"'
 
       # nix shortcuts
       shell() {
           nix-shell '<nixpkgs>' -A "$1"
       }
 
-      # pnpm is a javascript package manager
-      alias pn=pnpm
-      alias px=pnpx
+
+      # CLI Tools
+      alias ls='lsd'
+      alias c='clear'
+      alias gc="git checkout"
+      alias gcb="git checkout -b"
+      alias gb="git branch"
+      alias gs="git status"
+      alias gd="git diff"
+      alias gl="git log"
+      alias gp="git pull"
+      alias gaa="git add ."
+      alias gcm="git commit -m "
+      alias gps="git push"
+      alias gcl="git clone"
 
       # Use difftastic, syntax-aware diffing
       alias diff=difft
-
-      # Always color ls and group directories
-      alias ls='ls --color=auto'
     '';
   };
 
@@ -224,13 +234,13 @@ let name = "Colin Zhang";
         ];
       };
 
-      dynamic_padding = true;
-      decorations = "full";
-      title = "Terminal";
-      class = {
-        instance = "Alacritty";
-        general = "Alacritty";
-      };
+      #dynamic_padding = true;
+      #decorations = "full";
+      #title = "Terminal";
+      #class = {
+      #  instance = "Alacritty";
+      #  general = "Alacritty";
+      #};
 
       colors = {
         primary = {
@@ -278,10 +288,10 @@ let name = "Colin Zhang";
         identitiesOnly = true;
         identityFile = [
           (lib.mkIf pkgs.stdenv.hostPlatform.isLinux
-            "/home/${user}/.ssh/id_github"
+            "/home/${user}/.ssh/id_ed25519"
           )
           (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin
-            "/Users/${user}/.ssh/id_github"
+            "/Users/${user}/.ssh/id_ed25519"
           )
         ];
       };

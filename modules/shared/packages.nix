@@ -3,9 +3,8 @@
 with pkgs; [
   # General packages for development and system management
   alacritty
-  aspell
-  aspellDicts.en
   bash-completion
+  zsh-bd
   bat
   btop
   coreutils
@@ -15,45 +14,46 @@ with pkgs; [
   sqlite
   wget
   zip
-
-  # Encryption and security tools
-  age
-  age-plugin-yubikey
-  gnupg
-  libfido2
-
-  # Cloud-related tools and SDKs
-  docker
-  docker-compose
-
-  # Media-related packages
-  emacs-all-the-icons-fonts
-  dejavu_fonts
-  ffmpeg
   fd
-  font-awesome
-  hack-font
-  noto-fonts
-  noto-fonts-emoji
-  meslo-lgs-nf
+  difftastic
+  du-dust
+  git
 
-  # Node.js development tools
-  nodePackages.npm # globally install npm
-  nodePackages.prettier
-  nodejs
+  # C/C++ Dev
+  gnumake
+  cmake
+  bear
+  lldb
+  gdb
+  clang-tools
+  cppcheck
+  libllvm
+  libcxx
+
+  # Python packages
+  black
+  python39
+
+  # Programming Languages
+  
+
+  # Fonts
+  ibm-plex
+  jetbrains-mono
+  emacs-all-the-icons-fonts
+  nerdfonts
+  meslo-lgs-nf
 
   # Text and terminal utilities
   htop
-  hunspell
-  iftop
-  jetbrains-mono
-  jq
   ripgrep
   tree
   tmux
   unrar
   unzip
   zsh-powerlevel10k
+  fzf
+  lsd
 
   # Python packages
   python39
