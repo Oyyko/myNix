@@ -30,13 +30,6 @@ with pkgs; [
   libllvm
   libcxx
 
-  # Python packages
-  black
-  python39
-
-  # Programming Languages
-  
-
   # Fonts
   ibm-plex
   jetbrains-mono
@@ -55,7 +48,23 @@ with pkgs; [
   fzf
   lsd
 
+  # Editors
+  helix
+
   # Python packages
-  python39
-  python39Packages.virtualenv # globally install virtualenv
+  black
+  python312
+  python312Packages.virtualenv # globally install virtualenv
+  python312Packages.flask
+
+  # Web
+  nodejs_22
+
+  # Tex
+   (texlive.combine {
+    inherit (texlive) scheme-medium xecjk titlesec enumitem hyperref fancyhdr babel hyphenat fontawesome parskip etoolbox csquotes; # using scheme-medium with xeCJK
+  })
+
+  # Programming Languages
+  ruby_3_3
 ]
