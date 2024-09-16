@@ -6,6 +6,7 @@ _:
 
   # Communication Tools
   "telegram"
+  "whatsapp"
 
   # Browsers
   "google-chrome"

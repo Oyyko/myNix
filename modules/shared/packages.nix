@@ -32,6 +32,7 @@ with pkgs; [
 
   # Fonts
   ibm-plex
+  plemoljp-nf
   jetbrains-mono
   emacs-all-the-icons-fonts
   nerdfonts

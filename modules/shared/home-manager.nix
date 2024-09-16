@@ -78,6 +78,13 @@ let name = "Colin Zhang";
     '';
   };
 
+  helix = {
+    enable = true;
+    settings = {
+      theme = "monokai";
+    };
+  };
+
   git = {
     enable = true;
     ignores = [ "*.swp" ];
@@ -224,12 +231,12 @@ let name = "Colin Zhang";
 
       font = {
         normal = {
-          family = "MesloLGS NF";
+          family = "PlemolJP Console NF";
           style = "Regular";
         };
         size = lib.mkMerge [
           (lib.mkIf pkgs.stdenv.hostPlatform.isLinux 10)
-          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 18)
+          (lib.mkIf pkgs.stdenv.hostPlatform.isDarwin 22)
         ];
       };
 
