@@ -70,7 +70,6 @@ with pkgs; [
 
   # Build
   bazelisk
-  xmake
 
   # Tex
    (texlive.combine {

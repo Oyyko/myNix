@@ -42,6 +42,9 @@ let name = "Colin Zhang";
       # Keyboard Settings
       bindkey "\e\e[D" backward-word
       bindkey "\e\e[C" forward-word
+      bindkey '\e[1;3D' backward-word  # Option + 左方向键
+      bindkey '\e[1;3C' forward-word   # Option + 右方向键
+
 
       # Define variables for directories
       export PATH=$HOME/.local/share/bin:$PATH
@@ -75,6 +78,10 @@ let name = "Colin Zhang";
 
       # Use difftastic, syntax-aware diffing
       alias diff=difft
+
+      # >>> xmake >>>
+      test -f "/Users/jia/.xmake/profile" && source "/Users/jia/.xmake/profile"
+      # <<< xmake <<<
     '';
   };
 
