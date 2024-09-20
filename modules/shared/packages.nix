@@ -37,6 +37,8 @@ with pkgs; [
   emacs-all-the-icons-fonts
   nerdfonts
   meslo-lgs-nf
+  lxgw-wenkai
+  vistafonts-chs
 
   # Text and terminal utilities
   htop
@@ -48,6 +50,11 @@ with pkgs; [
   zsh-powerlevel10k
   fzf
   lsd
+  
+  # CLI tools
+  pv
+  tokei
+  
 
   # Editors
   helix
@@ -60,6 +67,10 @@ with pkgs; [
 
   # Web
   nodejs_22
+
+  # Build
+  bazelisk
+  xmake
 
   # Tex
    (texlive.combine {

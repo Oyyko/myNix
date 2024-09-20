@@ -82,6 +82,12 @@ let name = "Colin Zhang";
     enable = true;
     settings = {
       theme = "monokai";
+      keys.normal = {
+        "="."=" = ":format";
+      };
+      keys.insert = {
+        "A-x" = "normal_mode";
+      };
     };
   };
 
