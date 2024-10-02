@@ -90,7 +90,7 @@ let name = "Colin Zhang";
     settings = {
       theme = "monokai";
       keys.normal = {
-        "="."=" = ":format";
+        "="."=" = [":format" "insert_mode"];
       };
       keys.insert = {
         "A-x" = "normal_mode";
