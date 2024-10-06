@@ -19,16 +19,25 @@ with pkgs; [
   du-dust
   git
 
+
+  # C++ Libs
+  boost
+
   # C/C++ Dev
-  gnumake
-  cmake
-  bear
   lldb
   gdb
   clang-tools
   cppcheck
   libllvm
   libcxx
+  openssl
+
+  # Build
+  bazelisk
+  ninja
+  cmake
+  bear
+  gnumake
 
   # Fonts
   ibm-plex
@@ -54,7 +63,7 @@ with pkgs; [
   # CLI tools
   pv
   tokei
-  
+
 
   # Editors
   helix
@@ -68,8 +77,7 @@ with pkgs; [
   # Web
   nodejs_22
 
-  # Build
-  bazelisk
+
 
   # Tex
    (texlive.combine {
